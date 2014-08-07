@@ -1,0 +1,66 @@
+do
+{
+    *(_DWORD *)(result + v1 + 1032) = 0;
+    v1 += 4;
+}
+while ( v1 != 128 );
+*(_DWORD *)(result + 1160) = 0;
+*(_DWORD *)(result + 1164) = 0;
+*(_DWORD *)(result + 1168) = 0;
+*(_DWORD *)(result + 1172) = 0;
+*(_DWORD *)(result + 1176) = 0;
+*(_DWORD *)(result + 1180) = 0;
+*(_DWORD *)(result + 1196) = 0;
+*(_DWORD *)(result + 1200) = 0;
+*(_DWORD *)(result + 1192) = 0;
+*(_BYTE *)(result + 1188) = 0;
+
+set zero
+dword
+(1032 1036 1040.....1180) 1184 1188 1189 
+byte
+1188
+dwork
+1192 1196 1200
+
+set zero
+1184  dword
+1189  byte
+1160  dword
+
+*1176=*1160
+
+
+pointer+1144=0x004099D0  0x1c
+pointer+1148=0x00430000  0x1d
+pointer+1160=0x00400960  0x20
+
+VM Memory: 0x00400000-0x00430000
+
+
+
+
+#0  0xb6d200cc in __read_chk () from /usr/lib/libc.so.6
+#1  0x2a003478 in ?? ()
+#2  0x2a003516 in ?? ()
+#3  0x2a001df6 in ?? ()
+#4  0x2a001aaa in ?? ()
+#5  0x2a0022c2 in ?? ()
+#6  0x2a003118 in ?? ()
+#7  0x2a0037ea in main ()
+#8  0xb6c5a27c in __libc_start_main () from /usr/lib/libc.so.6
+#9  0x2a0018fe in ?? ()
+
+
+
+#0  0xb6d200cc in __read_chk () from /usr/lib/libc.so.6
+#1  0x2a003478 in ?? ()
+#2  0x2a003516 in ?? ()
+#3  0x2a001df6 in ?? ()
+#4  0x2a001aaa in ?? ()   arm Instruction
+#5  0x2a0022c2 in ?? ()   thmub Instruction
+#6  0x2a003118 in ?? ()
+#7  0x2a0037ea in main ()
+#8  0xb6c5a27c in __libc_start_main () from /usr/lib/libc.so.6
+#9  0x2a0018fe in ?? ()
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)

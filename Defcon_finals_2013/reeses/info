@@ -1,0 +1,40 @@
+v6      |    pointer                |   
+v7 0    |    a1                     |   c1
+v8 0    |    a1+4       VM_address  |
+   0    |    a1+8       48          |
+p?      |    pointer+16
+             pointer+20 pointer
+
+set 0
+v8(+1032-1180.....1188-1200)
+
+pointer+16+1160  ->  entry point
+
+
+register
+pointer+16 + 4*(index+258)
+index = 0x1c 0x1d 0x20 ....
+
+
+1188 1196
+
+
+
+p1: $r0  = 0xbefff644
+p2: *$ro = 0xbefff638
+
+*(p2+4) = 0xb6b76000
+
+
+#0  0xb6d200cc in __read_chk () from /usr/lib/libc.so.6
+#1  0x2a003478 in ?? ()
+#2  0x2a003516 in ?? ()
+#3  0x2a001df6 in ?? ()
+#4  0x2a001aaa in ?? ()
+#5  0x2a0022c2 in ?? ()
+#6  0x2a003118 in ?? ()
+#7  0x2a0037ea in main ()
+#8  0xb6c5a27c in __libc_start_main () from /usr/lib/libc.so.6
+#9  0x2a0018fe in ?? ()
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+

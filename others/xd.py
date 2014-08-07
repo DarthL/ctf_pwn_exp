@@ -75,3 +75,11 @@ if __name__ == '__main__' :
     for s in ('ljozkg', 'llozmg'):
         log('Brute force ' + s + ': ', 'yellow')
         Getkey(s)
+
+'''
+another way to get the flag bypass the key Verify
+import os
+a = '=<:=<:<:=<?;u@|=qp?~:|t|'
+for i in a:
+    sys.stdout.write(chr(ord(i)-12))
+'''

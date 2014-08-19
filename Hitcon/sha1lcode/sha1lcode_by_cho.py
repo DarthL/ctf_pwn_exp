@@ -3,7 +3,7 @@
 from zio import *
 
 ip = '210.61.2.51'
-#ip = '10.211.55.48'
+ip = '10.211.55.48'
 port = 5566
 
 io = zio((ip, port), timeout = 1000, print_write = COLORED(REPR))

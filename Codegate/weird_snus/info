@@ -1,0 +1,37 @@
+gdb-peda$ checksec
+CANARY    : ENABLED
+FORTIFY   : disabled
+NX        : ENABLED
+PIE       : disabled
+RELRO     : Partial
+
+ROP chains
+
+
+
+Menu
+
+command: D
+function: chdir
+
+command: A
+function: good_func(10)
+good_func: none
+
+command: G
+function: GetKeyPath
+
+command: E
+funcrion: exit
+
+command: M
+funcrion: myid_func(10)
+myid_func: none
+PS: It may a UAF
+
+command: C
+function: password
+
+command: T
+function: continue
+
